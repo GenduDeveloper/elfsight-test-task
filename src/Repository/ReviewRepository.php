@@ -25,8 +25,6 @@ class ReviewRepository extends ServiceEntityRepository
             ->where('r.episodeId = :episodeId')
             ->setParameter('episodeId', $episodeId);
 
-        $result = (float)$queryBuilder->getQuery()->getSingleScalarResult();
-
-        return round($result, 2);
+        return (float)$queryBuilder->getQuery()->getSingleScalarResult();
     }
 }

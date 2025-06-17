@@ -36,7 +36,7 @@ class EpisodeReviewService
             limit: self::REVIEWS_PER_PAGE_LIMIT
         );
 
-        $averageSentimentScore = $this->reviewRepository->getAverageSentimentScoreByEpisodeId($episodeId);
+        $averageSentimentScore = round($this->reviewRepository->getAverageSentimentScoreByEpisodeId($episodeId), 2);
 
         $episodeData = new EpisodeResult(
             $episode->id,
