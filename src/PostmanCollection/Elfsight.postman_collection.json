@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "03903ccc-ec02-4e40-88f2-f36e95536895",
+		"name": "Elfsight",
+		"description": "Тестовое задание для компании Elfsight (Symfony)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38860588"
+	},
+	"item": [
+		{
+			"name": "Получение эпизодов Рика и Морти",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/v1/episodes",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"episodes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание нового отзыва к эпизоду",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"It's a bad season, I won't watch it. \"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/v1/episodes/5/reviews",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"episodes",
+						"5",
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение эпизода и трёх последних отзыва к нему",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/v1/episodes/5",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"episodes",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
