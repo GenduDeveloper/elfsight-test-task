@@ -43,10 +43,16 @@ RICK_AND_MORTY_API_BASE_URL=https://rickandmortyapi.com/api/
 Получение списка эпизодов из стороннего API:   
 `GET` http://127.0.0.1:8080/api/v1/episodes
 
+![Получение списка эпизодов](public/images/episode_list_external_api.png)
+
 Добавление отзыва к эпизоду:   
 `POST` http://127.0.0.1:8080/api/v1/episodes/{episodeId}/reviews
 
+![Добавление отзыва к эпизоду](public/images/add_review_with_episode.png)
+
 Получение конкретного эпизода с 3 последними отзывами:   
 `GET` http://127.0.0.1:8080/api/v1/episodes/{episodeId}
+
+![Эпизод и 3 последних отзыва](public/images/show_episode_reviews.png)
 
 Postman коллекция находится в папке `src/PostmanCollection`
