@@ -8,7 +8,7 @@
 
 ## Разворачивание проекта
 
-1. Клонируем репозиторий: https://github.com/GenduDeveloper/elfsight-test-task.git
+1. Клонируем репозиторий: git clone https://github.com/GenduDeveloper/elfsight-test-task.git
 2. Создаем `.env.local` и заполняем его по подобию `.env`
 
 Обязательно для заполнения:
