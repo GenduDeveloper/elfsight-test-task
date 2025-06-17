@@ -1,0 +1,51 @@
+services:
+  webserver:
+    image: nginx:stable-alpine
+    container_name: elfsight_webserver
+    ports:
+      - "8080:80"
+    volumes:
+      - ./public:/var/www/elfsight/public
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - app-network
+
+  app:
+    build:
+      context: ./docker/php-fpm
+      dockerfile: Dockerfile
+    container_name: elfsight_app
+    volumes:
+      - ./:/var/www/elfsight
+    expose:
+      - "9000"
+    user: "${UID}:${GID}"
+    networks:
+      - app-network
+
+  mysql:
+    image: mysql:8.0
+    container_name: elfsight_database
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "4306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - app-network
+
+volumes:
+  db_data:
+
+networks:
+  app-network:
+    driver: bridge
+
+
+

@@ -17,6 +17,13 @@ framework:
     php_errors:
         log: true
 
+    http_client:
+        scoped_clients:
+            rick.and.morty.client:
+                base_uri: '%env(resolve:RICK_AND_MORTY_API_BASE_URL)%'
+                headers:
+                    Accept: 'application/json'
+
 when@test:
     framework:
         test: true
